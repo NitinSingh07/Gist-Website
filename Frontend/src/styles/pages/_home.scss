@@ -1,0 +1,522 @@
+// Theme Colors
+@import "../base/variables";
+@font-face {
+  font-family: "Smoothy Rsz";
+  src: url("../../assets/fonts/FontsFree-Net-Smoothy-Rsz-Regular.ttf");
+}
+
+.hero-section {
+  margin-bottom: 50px;
+
+  .slider-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 0;
+    background-color: #fdfdfd;
+
+    .slider-wrapper {
+      width: 50%;
+      height: 100%;
+      padding-bottom: 0;
+      .item {
+        outline: none;
+        border: none;
+        padding-bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        height: 100%;
+        img {
+          width: 80%;
+          height: 80%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .content {
+      width: 45%;
+      padding: 20px;
+      align-self: flex-start;
+
+      .inner-content {
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        h3 {
+          margin-bottom: 10px;
+          color: #9c9c9c;
+          font-size: 50px;
+          font-family: "Smoothy Rsz";
+        }
+
+        h1 {
+          font-size: 40px;
+          font-weight: bolder;
+          margin-bottom: 20px;
+          color: black;
+          line-height: 1;
+        }
+
+        .social-box {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: $ocean-blue;
+            font-size: 28px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+              background-color: $dark-turquoise-blue;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .banner-bottom {
+    position: relative;
+    bottom: 5px;
+    text-align: center;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $dark-turquoise-blue;
+    margin-top: 0;
+
+    p {
+      font-size: 20px;
+      color: white;
+      font-weight: 500;
+      margin-right: 20px;
+
+      a {
+        color: $light-azure-blue;
+        font-weight: bold;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $cerulean-blue;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .slider-container {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      .slider-wrapper {
+        width: 100%;
+        margin-bottom: 20px;
+
+        .item {
+          width: 100%;
+          display: flex;
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+      .content {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+
+        .inner-content {
+          align-items: center;
+          h3 {
+            font-size: 32px;
+          }
+
+          h1 {
+            font-size: 28px;
+          }
+
+          .social-box {
+            display: flex;
+            justify-content: center;
+            a {
+              width: 30px;
+              height: 30px;
+              font-size: 20px;
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+    }
+
+    .banner-bottom {
+      p {
+        justify-content: center;
+        font-size: 16px;
+        padding-left: 20px;
+      }
+    }
+  }
+}
+
+//************************************ JOB Search Form **********************************************//
+//************************************ JOB Search Form **********************************************//
+//************************************ JOB Search Form **********************************************//
+
+.job-search-form {
+  position: relative;
+  margin: 20px;
+  margin-left: 10%;
+  margin-top: -140px;
+  padding: 20px;
+  width: 80%;
+  // background-color: $light-azure-blue;
+  background: linear-gradient(to right, white, $cerulean-blue);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+
+  .form-title {
+    margin-bottom: 15px;
+    font-size: 24px;
+    margin: 0;
+    color: $deep-ocean-blue;
+  }
+
+  .form-holder-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+
+    .form-row {
+      width: 75%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .form-control,
+        .fake-select {
+          width: 90%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          margin-bottom: 10px;
+        }
+
+        .sub-title-note {
+          font-size: 12px;
+          color: #414040;
+        }
+      }
+    }
+
+    .form-btn-wrap {
+      width: 25%;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+
+      .btn {
+        width: 80%;
+        padding: 10px 20px;
+        background-color: $deep-ocean-blue;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+
+      .more-filters-opener {
+        margin-left: 10px;
+        font-size: 14px;
+        font-weight: bold;
+        color: $ocean-blue;
+        text-decoration: none;
+        cursor: pointer;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+
+}
+
+
+//************************************ Latest Jobs  **********************************************//
+//************************************ Latest Jobs **********************************************//
+//************************************ Latest Jobs **********************************************//
+
+.jobs-container {
+  .jobs-section {
+      background-color: #fff;
+      padding: 40px 0;
+
+      .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          text-align: center;
+
+          .horizontal-line{
+            border: 2px solid $dark-turquoise-blue;
+            width: 100px;
+            margin-bottom: 0;
+          }
+
+          .job-title {
+            margin-top: 0;
+              color: $ocean-blue;
+              font-size: 32px;
+              margin-bottom: 30px;
+              font-weight: 600;
+          }
+
+          .job-band {
+              box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+              padding: 20px 30px;
+              margin-bottom: 20px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              transition: transform 0.3s ease, box-shadow 0.8s ease;
+              border-top: 3px solid white;
+
+
+              &:hover {
+                  transform: translateY(-px);
+                  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+                  border-top: 3px solid $light-azure-blue;
+              }
+
+              .job-name,
+              .job-country,
+              .job-apply {
+                  color: $deep-ocean-blue;
+                  font-size: 18px;
+                  font-weight: 500;
+              }
+
+              .job-apply {
+                  a {
+                      background-color: $deep-ocean-blue;
+                      color: #fff;
+                      border-radius: 5px;
+                      padding: 10px 20px;
+                      text-decoration: none;
+                      transition: background-color 0.3s ease, transform 0.3s ease;
+
+                      &:hover {
+                          background-color: $dark-turquoise-blue;
+                          transform: translateY(-2px);
+                      }
+                  }
+              }
+          }
+
+          .check-btn {
+              display: inline-block;
+              padding: 15px 30px;
+              background-color: $light-azure-blue;
+              color: $deep-ocean-blue;
+              border-radius: 5px;
+              text-decoration: none;
+              font-weight: bold;
+              transition: background-color 0.3s ease, transform 0.3s ease;
+
+              &:hover {
+                  background-color: $cerulean-blue;
+                  color: #fff;
+                  transform: translateY(-2px);
+              }
+          }
+      }
+  }
+}
+
+//************************************ Why We  **********************************************//
+//************************************ Why We **********************************************//
+//************************************ Why We **********************************************//
+.talent-section {
+  display: flex;
+  justify-content: center;
+
+  .talent,
+  .recruit {
+    width: 50%;
+    animation: fadeIn 1s ease-in-out forwards; /* Added animation */
+    opacity: 0; /* Start with opacity 0 for animation */
+    transition: transform 0.3s ease-in-out; /* Added transition */
+  }
+
+  .talent {
+    background-color: white;
+  }
+
+  .recruit {
+    background-color: #44b5c0; /* Changed to a more visible color */
+    color: white; /* Changed font color to white */
+  }
+
+  &:hover {
+    .talent {
+      transform: translateY(-10px);
+    }
+    .recruit {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Start position for fade-up animation */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End position for fade-up animation */
+  }
+}
+
+.talent-column {
+  padding: 30px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.talent-content {
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.section-header {
+  margin-bottom: 20px;
+
+  .header-pre {
+    font-size: 1.2rem;
+    color: #006089;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-decoration: underline;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    color: #062c58;
+    margin-bottom: 10px;
+  }
+}
+
+.benefits-list {
+  margin-bottom: 20px;
+
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    .benefit-icon {
+      color: #248eb5;
+      margin-right: 10px;
+      border: 2px solid #248eb5; /* Changed border color */
+      padding: 20px;
+      border-radius: 50%;
+      margin-right: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.3s, color 0.3s;
+
+      &:hover {
+        background-color: #248eb5;
+        color: white;
+      }
+    }
+
+    .benefit-description {
+      font-size: 1rem;
+      color: #006089;
+      font-weight: 500;
+      flex: 1; /* Take remaining space */
+    }
+  }
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0; /* Start with opacity 0 for fade-up animation */
+  animation: fadeUp 1s ease-in-out forwards;
+
+  .btn {
+    text-decoration: none;
+    padding: 12px 24px;
+    margin: 10px;
+    color: white;
+    background-color: #248eb5;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #44b5c0;
+    }
+
+    &.btn-secondary {
+      background-color: #062c58;
+
+      &:hover {
+        background-color: #006088;
+      }
+    }
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Start position for fade-up animation */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End position for fade-up animation */
+  }
+}

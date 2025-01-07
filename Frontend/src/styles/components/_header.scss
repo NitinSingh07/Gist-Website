@@ -1,0 +1,214 @@
+@import "../base/variables"; // Import your theme colors
+
+.header {
+  background: linear-gradient(to right, white, $ocean-blue);
+  padding-right: 20px;
+  padding-left:  20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1440px;
+    position: relative;
+
+    .logo {
+      width: 250px;
+    }
+
+    .logo img {
+      width: 50%;
+    }
+
+    .navbar {
+
+      margin-left: 20px;
+
+      .menu {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          margin-right: 20px;
+
+          a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            padding: 10px;
+            border-radius: 5px;
+
+            &:hover {
+              background-color: darken($ocean-blue, 10%); // Darker background on hover
+              color: #fff;
+              transform: scale(1.1); // Creative hover effect
+            }
+          }
+        }
+      }
+    }
+
+    .auth-buttons {
+      display: flex;
+      align-items: center;
+
+      .btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        margin-left: 10px;
+
+        &.login {
+          border: 1px solid #fff;
+          color: #fff;
+          background-color: transparent;
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.2); // Example hover background color
+            transform: translateY(-5px); // Creative hover effect
+          }
+        }
+
+        &.signup {
+          background-color: $light-azure-blue;
+          color: #fff;
+
+          &:hover {
+            background-color: #248eb5; // Change color on hover
+            transform: translateY(-5px); // Creative hover effect
+          }
+        }
+      }
+    }
+
+    .mobile-menu-icon {
+      display: none;
+      font-size: 24px;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $light-azure-blue; // Change color on hover
+      }
+    }
+  }
+}
+
+// Sidebar styles
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background: linear-gradient(to right, $light-azure-blue, $deep-ocean-blue);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 999;
+
+  &.active {
+    right: 0;
+  }
+
+  .sidebar-menu {
+    list-style-type: none;
+    padding: 20px;
+    margin: 0;
+
+    li {
+      margin-bottom: 20px;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        padding: 10px;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: darken($deep-ocean-blue, 10%); // Darker background on hover
+          color: #fff;
+          transform: scale(1.1); // Creative hover effect
+        }
+      }
+
+      .btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        display: block;
+
+        &.login {
+          border: 1px solid #fff;
+          color: #fff;
+          background-color: transparent;
+          margin-bottom: 10px;
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.2); // Example hover background color
+            transform: translateY(-5px); // Creative hover effect
+          }
+        }
+
+        &.signup {
+          background-color: $light-azure-blue;
+          color: #fff;
+
+          &:hover {
+            background-color: #248eb5; // Change color on hover
+            transform: translateY(-5px); // Creative hover effect
+          }
+        }
+      }
+    }
+  }
+}
+
+// Overlay styles
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+
+  &.active {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .header .header-container {
+    .navbar {
+      display: none;
+    }
+
+    .auth-buttons {
+      display: none;
+    }
+
+    .mobile-menu-icon {
+      display: block;
+    }
+  }
+}
