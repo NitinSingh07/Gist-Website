@@ -10,13 +10,17 @@ import Resources from "./pages/Resources";
 import Jobs from "./pages/Jobs";
 import Recruiters from "./pages/Recruiters";
 import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 const App = () => {
   return (
-    <Router> {/* Wrap everything inside Router */}
+    <Router>
       <div className="App">
-        <Header /> {/* Place the Header component inside the Router */}
+        <Header />
         <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
