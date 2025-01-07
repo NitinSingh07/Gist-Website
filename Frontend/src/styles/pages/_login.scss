@@ -1,37 +1,88 @@
 .login-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f5f5f5;
+  background: url("https://images.unsplash.com/photo-1506765515384-028b60a970df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-4.0.3&q=80&w=1600");
+  font-family: "Arial", sans-serif;
 
   form {
+    background-color: rgba(193, 212, 230, 0.95);
+
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    width: 300px;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    align-items: center;
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
 
     input {
-      margin-bottom: 15px;
+      width: 100%;
       padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      margin-bottom: 20px;
+      border: 1px solid #1e5f74;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #1e5f74;
+      background-color: #eaf6f7;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: #4fc1e9;
+        box-shadow: 0 0 10px rgba(79, 193, 233, 0.5);
+        outline: none;
+      }
     }
 
     button {
-      padding: 10px;
-      background-color: #248eb5;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #1e5f74, #4fc1e9);
       color: white;
       border: none;
       border-radius: 5px;
+      font-size: 16px;
       cursor: pointer;
+      transition: background-color 0.3s;
 
       &:hover {
-        background-color: #44b5c0;
+ background: linear-gradient(135deg, #4fc1e9, #1e5f74);
+        transform: translateY(-3px);      }
+    }
+  }
+
+  .popup-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    z-index: 1000;
+
+    &.error {
+      background-color: #f44336;
+    }
+  }
+
+  @media (max-width: 768px) {
+    form {
+      width: 90%;
+      padding: 20px;
+
+      input,
+      button {
+        font-size: 14px;
       }
     }
   }

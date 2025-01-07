@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import '../styles/pages/_login.scss';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // For navigation
+import axios from "axios";
+import "../styles/pages/_login.scss";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
+
+  const [popupMessage, setPopupMessage] = useState(""); // State for popup
+  const navigate = useNavigate(); // Navigation hook
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -20,21 +24,51 @@ const Login = () => {
     try {
       const response = await axios.post(
         `http://localhost:4000/api/login`,
-        formData
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
-      console.log(response.data);
+
+      // Show success popup and navigate
+      setPopupMessage("User logged in successfully!");
+      setTimeout(() => {
+        navigate("/"); // Redirect to homepage
+      }, 2000);
     } catch (error) {
       console.error(error);
+      setPopupMessage("Login failed. Please check your credentials.");
     }
   };
 
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit}>
-        <input type="email" name="email" placeholder="Email" onChange={handleChange} />
-        <input type="password" name="password" placeholder="Password" onChange={handleChange} />
+        <h2>Login</h2>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          onChange={handleChange}
+          required
+        />
         <button type="submit">Login</button>
       </form>
+
+      {popupMessage && ( // Conditional rendering for popup
+        <div className="popup-message">
+          <p>{popupMessage}</p>
+        </div>
+      )}
     </div>
   );
 };
