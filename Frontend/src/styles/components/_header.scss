@@ -3,7 +3,7 @@
 .header {
   background: linear-gradient(to right, white, $ocean-blue);
   padding-right: 20px;
-  padding-left:  20px;
+  padding-left: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,14 +19,13 @@
 
     .logo {
       width: 250px;
-    }
 
-    .logo img {
-      width: 50%;
+      img {
+        width: 50%;
+      }
     }
 
     .navbar {
-
       margin-left: 20px;
 
       .menu {
@@ -108,7 +107,7 @@
 
       .user-icon {
         color: #fff; // White color
-        font-size: 24px;
+        font-size: 36px;
         cursor: pointer;
       }
 
@@ -120,16 +119,36 @@
         color: #333;
         padding: 10px;
         border-radius: 5px;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
         width: 180px;
         text-align: left;
 
         h4 {
           margin: 0 0 5px;
         }
+
         p {
           margin: 0;
           font-size: 14px;
+        }
+
+        .btn.logout {
+          display: block;
+          width: 100%;
+          text-align: center;
+          margin-top: 10px;
+          padding: 10px;
+          border-radius: 5px;
+          background-color: $light-azure-blue;
+          color: #fff;
+          text-decoration: none;
+          font-size: 14px;
+          transition: background-color 0.3s ease, transform 0.3s ease;
+
+          &:hover {
+            background-color: #248eb5; // Change color on hover
+            transform: scale(1.05); // Subtle hover effect
+          }
         }
       }
     }
@@ -175,34 +194,21 @@
         }
       }
 
-      .btn {
+      .btn.logout {
+        background-color: $light-azure-blue;
+        color: #fff;
         padding: 10px 20px;
         border-radius: 5px;
         text-decoration: none;
         font-size: 16px;
-        transition: background-color 0.3s ease, transform 0.3s ease;
         display: block;
+        text-align: center;
+        margin-top: 10px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
 
-        &.login {
-          border: 1px solid #fff;
-          color: #fff;
-          background-color: transparent;
-          margin-bottom: 10px;
-
-          &:hover {
-            background-color: rgba(255, 255, 255, 0.2); // Example hover background color
-            transform: translateY(-5px); // Creative hover effect
-          }
-        }
-
-        &.signup {
-          background-color: $light-azure-blue;
-          color: #fff;
-
-          &:hover {
-            background-color: #248eb5; // Change color on hover
-            transform: translateY(-5px); // Creative hover effect
-          }
+        &:hover {
+          background-color: #248eb5; // Change color on hover
+          transform: translateY(-5px); // Creative hover effect
         }
       }
     }
@@ -228,6 +234,7 @@
   }
 }
 
+// Responsive styles
 @media (max-width: 768px) {
   .header .header-container {
     .navbar {

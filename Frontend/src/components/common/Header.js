@@ -6,24 +6,33 @@ import logo from "../../assets/images/gist-logo.png";
 
 const Header = () => {
   const [sidebar, setSidebar] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userData, setUserData] = useState({});
+  const [user, setUser] = useState(null); // Consolidated state for user data and auth status
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUserData(JSON.parse(storedUser));
-      setIsLoggedIn(true);
+    try {
+      const storedUser = localStorage.getItem("user");
+      if (storedUser) {
+        const parsedUser = JSON.parse(storedUser);
+        setUser(parsedUser);
+      }
+    } catch (error) {
+      console.error("Failed to parse user data from localStorage", error);
     }
   }, []);
 
   const toggleSidebar = () => {
-    setSidebar(!sidebar);
+    setSidebar((prev) => !prev);
   };
 
   const toggleUserMenu = () => {
-    setShowUserMenu(!showUserMenu);
+    setShowUserMenu((prev) => !prev);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+    setShowUserMenu(false);
   };
 
   return (
@@ -46,7 +55,7 @@ const Header = () => {
               </li>
             </ul>
           </nav>
-          {!isLoggedIn ? (
+          {!user ? (
             <div className="auth-buttons">
               <Link to="/login" className="btn login">
                 Log In
@@ -60,8 +69,11 @@ const Header = () => {
               <FaUserCircle className="user-icon" />
               {showUserMenu && (
                 <div className="user-info-dropdown">
-                  <h4>{userData.name}</h4>
-                  <p>{userData.email}</p>
+                  <h4>{user.name}</h4>
+                  <p>{user.email}</p>
+                  <button className="btn logout" onClick={handleLogout}>
+                    Log Out
+                  </button>
                 </div>
               )}
             </div>
@@ -86,16 +98,30 @@ const Header = () => {
               For Companies
             </Link>
           </li>
-          <li>
-            <Link to="/login" className="btn login" onClick={toggleSidebar}>
-              Log In
-            </Link>
-          </li>
-          <li>
-            <Link to="/signup" className="btn signup" onClick={toggleSidebar}>
-              Sign Up
-            </Link>
-          </li>
+          {!user ? (
+            <>
+              <li>
+                <Link to="/login" className="btn login" onClick={toggleSidebar}>
+                  Log In
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/signup"
+                  className="btn signup"
+                  onClick={toggleSidebar}
+                >
+                  Sign Up
+                </Link>
+              </li>
+            </>
+          ) : (
+            <li>
+              <button className="btn logout" onClick={handleLogout}>
+                Log Out
+              </button>
+            </li>
+          )}
         </ul>
       </div>
       <div
