@@ -25,7 +25,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:4000/api/signup`,
+        `https://gist-website.onrender.com/api/signup`,
         formData,
         {
           headers: {
