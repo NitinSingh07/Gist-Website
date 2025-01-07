@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import axios from "axios";
 import "../styles/pages/_signup.scss";
 
@@ -9,6 +10,9 @@ const Signup = () => {
     password: "",
   });
 
+  const [popupMessage, setPopupMessage] = useState(""); // State for popup message
+  const navigate = useNavigate(); // useNavigate hook for redirection
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -18,7 +22,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       const response = await axios.post(
         `http://localhost:4000/api/signup`,
@@ -30,10 +34,16 @@ const Signup = () => {
         }
       );
 
-      console.log(response.data);
-      console.log(formData);
+      // Show success message
+      setPopupMessage("User created successfully!");
+
+      // Redirect to "/" after a delay
+      setTimeout(() => {
+        navigate("/");
+      }, 4000);
     } catch (error) {
       console.error(error);
+      setPopupMessage("An error occurred. Please try again.");
     }
   };
 
@@ -65,6 +75,13 @@ const Signup = () => {
         />
         <button type="submit">Sign Up</button>
       </form>
+
+      {popupMessage && ( // Show the popup message
+        <div className="popup-message">
+          <p>{popupMessage}</p>
+        </div>
+      )}
+
       <div className="info-section">
         <p>
           Already have an account? <a href="/login">Log In</a>
