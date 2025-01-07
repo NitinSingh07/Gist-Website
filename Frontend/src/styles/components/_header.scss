@@ -102,6 +102,37 @@
         color: $light-azure-blue; // Change color on hover
       }
     }
+
+    .user-profile {
+      position: relative;
+
+      .user-icon {
+        color: #fff; // White color
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      .user-info-dropdown {
+        position: absolute;
+        top: 40px;
+        right: 0;
+        background-color: #fff;
+        color: #333;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        width: 180px;
+        text-align: left;
+
+        h4 {
+          margin: 0 0 5px;
+        }
+        p {
+          margin: 0;
+          font-size: 14px;
+        }
+      }
+    }
   }
 }
 

@@ -37,10 +37,19 @@ const Signup = () => {
       // Show success message
       setPopupMessage("User created successfully!");
 
+      // Store user data in localStorage
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          name: formData.username,
+          email: formData.email,
+        })
+      );
+
       // Redirect to "/" after a delay
       setTimeout(() => {
         navigate("/");
-      }, 4000);
+      }, 2000);
     } catch (error) {
       console.error(error);
       setPopupMessage("An error occurred. Please try again.");
