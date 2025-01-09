@@ -1,31 +1,28 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
 const LatestJobOpenings = () => {
-  const jobListings = [
-    {
-      id: 1,
-      name: "All specialties",
-      country: "Health Care System in Ohio, USA",
-      isNew: true,
-    },
-    {
-      id: 2,
-      name: "Mental Health",
-      country: "Health And Social Care, Northern Ireland",
-      isNew: false,
-    },
-    {
-      id: 3,
-      name: "Theatre",
-      country: "Children’s Health Ireland",
-      isNew: false,
-    },
-  ];
+  const [jobListings, setJobListings] = useState([]);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/job/get-jobs");
+        setJobListings(response.data);
+      } catch (error) {
+        console.error("Error fetching jobs", error);
+      }
+    };
+
+    fetchJobs();
+  }, []);
 
   return (
     <div className="jobs-container">
       <div className="jobs-section">
         <div className="container">
           <div>
-            <hr className="horizontal-line"/>
+            <hr className="horizontal-line" />
             <h2 className="job-title">Latest Jobs</h2>
           </div>
           <div>
@@ -36,15 +33,17 @@ const LatestJobOpenings = () => {
               <div className="job-country">
                 <strong>Trust</strong>
               </div>
-              <div className="job-apply" style={{marginRight: 20}}>
+              <div className="job-apply" style={{ marginRight: 20 }}>
                 <strong>Apply</strong>
               </div>
             </div>
             <div className="careers-list">
               {jobListings.map((job) => (
                 <div className="job-band" key={job.id}>
-                  <div className="job-name">{job.name}</div>
-                  <div className="job-country">{job.country}</div>
+                  <div className="job-country">{job.company}</div>
+                  <div className="job-post">{job.post}</div>
+                  <div className="job-salary">{job.salary}</div>
+                  <div className="job-workingHours">{job.workingHours}</div>
                   <div className="job-apply">
                     <a href="careers" className="apply-btn">
                       Apply
