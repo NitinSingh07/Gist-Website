@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const LatestJobOpenings = () => {
   const [jobListings, setJobListings] = useState([]);
@@ -28,10 +29,16 @@ const LatestJobOpenings = () => {
           <div>
             <div className="job-band first">
               <div className="job-name">
-                <strong>Speciality</strong>
+                <strong>Company</strong>
               </div>
               <div className="job-country">
-                <strong>Trust</strong>
+                <strong>Position</strong>
+              </div>
+              <div className="job-country">
+                <strong>Salary</strong>
+              </div>
+              <div className="job-country">
+                <strong> Work Hours</strong>
               </div>
               <div className="job-apply" style={{ marginRight: 20 }}>
                 <strong>Apply</strong>
@@ -40,23 +47,25 @@ const LatestJobOpenings = () => {
             <div className="careers-list">
               {jobListings.map((job) => (
                 <div className="job-band" key={job.id}>
-                  <div className="job-country">{job.company}</div>
+                  <div className="job-country ">{job.company}</div>
                   <div className="job-post">{job.post}</div>
-                  <div className="job-salary">{job.salary}</div>
-                  <div className="job-workingHours">{job.workingHours}</div>
+                  <div className="job-salary">{job.salary} per annum</div>
+                  <div className="job-workingHours">
+                    {job.workingHours} hours/day
+                  </div>
                   <div className="job-apply">
-                    <a href="careers" className="apply-btn">
+                    <Link to="/job-seekers" className="apply-btn">
                       Apply
-                    </a>
+                    </Link>
                   </div>
                 </div>
               ))}
             </div>
           </div>
           <div>
-            <a href="careers" className="check-btn">
+            <Link to="/job-seekers" className="check-btn">
               Check All Job Openings
-            </a>
+            </Link>
           </div>
         </div>
       </div>
