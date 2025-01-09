@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../styles/pages/_forcompanies.scss";
+
 
 const ForCompanies = () => {
   const [job, setJob] = useState({
@@ -39,68 +41,79 @@ const ForCompanies = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Job Name:</label>
+    <div className="form-container">
+      <h1 className="form-heading">Post a New Job</h1>
+      <form className="job-form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="name">Job Name:</label>
           <input
             type="text"
+            id="name"
             name="name"
             value={job.name}
             onChange={handleChange}
             required
           />
         </div>
-        <div>
-          <label>Company Name:</label>
+        <div className="form-group">
+          <label htmlFor="company">Company Name:</label>
           <input
             type="text"
+            id="company"
             name="company"
             value={job.company}
             onChange={handleChange}
             required
           />
         </div>
-        <div>
-          <label>Post:</label>
+        <div className="form-group">
+          <label htmlFor="post">Post:</label>
           <input
             type="text"
+            id="post"
             name="post"
             value={job.post}
             onChange={handleChange}
             required
           />
         </div>
-        <div>
-          <label>Salary:</label>
+        <div className="form-group">
+          <label htmlFor="salary">Salary:</label>
           <input
             type="number"
+            id="salary"
             name="salary"
             value={job.salary}
             onChange={handleChange}
             required
           />
         </div>
-        <div>
-          <label>Working Hours:</label>
+        <div className="form-group">
+          <label htmlFor="workingHours">Working Hours:</label>
           <input
             type="text"
+            id="workingHours"
             name="workingHours"
             value={job.workingHours}
             onChange={handleChange}
             required
           />
         </div>
-        <div>
-          <label>Is New:</label>
-          <input
-            type="checkbox"
-            name="isNew"
-            checked={job.isNew}
-            onChange={() => setJob({ ...job, isNew: !job.isNew })}
-          />
+        <div className="form-group form-checkbox">
+          <label htmlFor="isNew">
+            <input
+              type="checkbox"
+              id="isNew"
+              name="isNew"
+              checked={job.isNew}
+              onChange={() => setJob({ ...job, isNew: !job.isNew })}
+            />
+            Is New
+          </label>
         </div>
-        <button type="submit">Post</button>
+        <button type="submit" className="submit-button">
+          Post
+        </button>
       </form>
     </div>
   );
