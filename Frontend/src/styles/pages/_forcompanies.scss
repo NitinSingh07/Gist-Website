@@ -15,7 +15,7 @@ $label-color: #555;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 90vh;
   background: $background-gradient;
   background-image: url("https://images.unsplash.com/photo-1606112219348-204d7d8b94ee");
   background-size: cover;
@@ -104,20 +104,50 @@ $label-color: #555;
 }
 
 // Responsive Design
+@media (max-width: 1024px) {
+  .job-form {
+    padding: 35px;
+    max-width: 90%; // Reduce width on tablets and smaller screens
+  }
+
+  .form-group input {
+    padding: 12px; // Slightly larger padding for better usability
+  }
+
+  .submit-button {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .form-heading {
+    font-size: 2rem; // Adjust heading font size on smaller screens
+  }
+
   .job-form {
     padding: 30px;
+    width: 90%; // Ensure the form doesn't overflow the screen
+  }
+
+  .form-group input {
+    font-size: 0.95rem; // Slightly smaller font size
+    padding: 12px; // Increase input padding for easier touch interaction
+  }
+
+  .submit-button {
+    font-size: 1.1rem;
+    padding: 12px; // Smaller button padding for better fit
   }
 }
 
 @media (max-width: 480px) {
   .form-heading {
-    font-size: 1.8rem;
+    font-size: 1.8rem; // Smaller font size for very small screens
   }
 
   .job-form {
     padding: 30px;
-    width: 90%;
+    width: 90%; // Full width for very small screens
   }
 
   .form-group input {
@@ -126,6 +156,7 @@ $label-color: #555;
   }
 
   .submit-button {
-    font-size: 1rem;
+    font-size: 1rem; // Adjust button font size
+    padding: 12px; // Slightly smaller button padding for small screens
   }
 }

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../styles/pages/_forcompanies.scss";
 
-
 const ForCompanies = () => {
   const [job, setJob] = useState({
     name: "",
@@ -44,17 +43,6 @@ const ForCompanies = () => {
     <div className="form-container">
       <h1 className="form-heading">Post a New Job</h1>
       <form className="job-form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Job Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={job.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
         <div className="form-group">
           <label htmlFor="company">Company Name:</label>
           <input
