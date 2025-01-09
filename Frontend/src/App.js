@@ -5,13 +5,12 @@ import Header from "./components/common/Header"; // Import the Header component
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
-import Expertise from "./pages/Expertise";
-import Resources from "./pages/Resources";
 import Jobs from "./pages/Jobs";
-import Recruiters from "./pages/Recruiters";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ForJobSeekers from "./pages/ForJobSeekers";
+import ForCompanies from "./pages/ForCompanies";
 
 const App = () => {
   return (
@@ -24,11 +23,10 @@ const App = () => {
           <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/expertise" element={<Expertise />} />
-          <Route path="/resources" element={<Resources />} />
           <Route path="/jobs" element={<Jobs />} />
-          <Route path="/recruiters" element={<Recruiters />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/companies" element={<ForCompanies />} />
+          <Route path="/job-seekers" element={<ForJobSeekers />} />
         </Routes>
       </div>
     </Router>
