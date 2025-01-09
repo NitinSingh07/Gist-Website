@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import {
   FaFacebookF,
   FaTwitter,
@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 import "../../styles/components/_footer.scss";
 
 const Footer = () => {
-//   const context = useContext(authContext);
-//   const { islogedin, userType } = context;
+  //   const context = useContext(authContext);
+  //   const { islogedin, userType } = context;
 
   const [email, setEmail] = useState("");
 
@@ -31,9 +31,7 @@ const Footer = () => {
         {/* Newsletter Subscription */}
         <div className="newsletter">
           <h3>Stay Updated with Notifications</h3>
-          <p>
-            Enter your email to receive the latest updates and news.
-          </p>
+          <p>Enter your email to receive the latest updates and news.</p>
           <form onSubmit={handleNewsletterSubmit}>
             <input
               type="email"
