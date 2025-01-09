@@ -31,9 +31,16 @@ const Login = () => {
           },
         }
       );
-
       // Show success popup and navigate
       setPopupMessage("User logged in successfully!");
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          name: response.data.user.name,
+          email: response.data.user.email,
+          token: response.data.token,
+        })
+      );
       setTimeout(() => {
         navigate("/"); // Redirect to homepage
       }, 2000);

@@ -24,7 +24,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
+      await axios.post(
         `https://gist-website.onrender.com/api/signup`,
         formData,
         {
