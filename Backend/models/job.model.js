@@ -21,6 +21,15 @@ const jobSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  applicants: [
+    {
+      name: String,
+      phone: String,
+      email: String,
+      experience: Number,
+      resume: String, // URL or path to the uploaded resume
+    },
+  ],
 });
 
 const Job = mongoose.model("Job", jobSchema);

@@ -10,7 +10,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ForJobSeekers from "./pages/ForJobSeekers";
 import ForCompanies from "./pages/ForCompanies";
-
+import ApplyJob from "./pages/ApplyJob";
+// import Notifications from "./pages/Notifications";
 const App = () => {
   return (
     <Router>
@@ -25,6 +26,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/companies" element={<ForCompanies />} />
           <Route path="/job-seekers" element={<ForJobSeekers />} />
+          <Route path="/apply/:jobId" element={<ApplyJob />} />
+          {/* <Route path="/notification" element={<Notifications />} /> */}
         </Routes>
       </div>
     </Router>
