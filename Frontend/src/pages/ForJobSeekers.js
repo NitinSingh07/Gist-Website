@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "../styles/pages/_forjobseekers.scss";
 
 const ForJobSeekers = () => {
   const [jobs, setJobs] = useState([]);
@@ -28,18 +29,34 @@ const ForJobSeekers = () => {
   }, []);
 
   return (
-    <div>
-      {jobs.map((job) => (
-        <div key={job.id}>
-          <h3>{job.name}</h3>
-          <p>Company: {job.company}</p>
-          <p>Post: {job.post}</p>
-          <p>Salary: {job.salary}</p>
-          <p>Working Hours: {job.workingHours}</p>
-          <p>{job.isNew ? "New" : "Old"}</p>
-        </div>
-      ))}
-    </div>
+ <div className="job-container-wrapper">
+  <div className="job-container">
+    {jobs.map((job) => (
+      <div className="job-card" key={job.id}>
+        <h3 className="job-title">
+          <i className="fas fa-briefcase"></i>
+          {job.name}
+        </h3>
+        <p className="job-info">
+          <i className="fas fa-building"></i> Company: {job.company}
+        </p>
+        <p className="job-info">
+          <i className="fas fa-user-tie"></i> Post: {job.post}
+        </p>
+        <p className="job-info">
+          <i className="fas fa-dollar-sign"></i> Salary: {job.salary}
+        </p>
+        <p className="job-info">
+          <i className="fas fa-clock"></i> Working Hours: {job.workingHours}
+        </p>
+        <span className={`job-status ${job.isNew ? "new" : "old"}`}>
+          {job.isNew ? "New" : "Old"}
+        </span>
+      </div>
+    ))}
+  </div>
+</div>
+
   );
 };
 

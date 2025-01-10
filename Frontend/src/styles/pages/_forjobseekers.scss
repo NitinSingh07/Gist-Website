@@ -1,0 +1,105 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+
+$primary-color: #2e5662;
+$secondary-color: #88e0f8;
+$light-gray: #f8f9fa;
+$text-dark: #333;
+$text-light: #fff;
+$shadow-color: rgba(0, 0, 0, 0.1);
+
+.job-container-wrapper {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, $primary-color, $secondary-color);
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  .job-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+    // background: rgba(255, 255, 255, 0.8);
+    // border-radius: 10px;
+    // box-shadow: 0 6px 12px $shadow-color;
+
+    .job-card {
+      background-color: $light-gray;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px $shadow-color;
+      padding: 1rem;
+      width: 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      color: $text-dark;
+      text-align: left;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 10px $shadow-color;
+      }
+
+      .job-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+
+        i {
+          color: $primary-color;
+        }
+      }
+
+      .job-info {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.9rem;
+
+        i {
+          color: $secondary-color;
+        }
+      }
+
+      .job-status {
+        align-self: flex-start;
+        padding: 0.4rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        &.new {
+          background-color: $primary-color;
+          color: $text-light;
+        }
+
+        &.old {
+          background-color: $secondary-color;
+          color: $text-light;
+        }
+      }
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 768px) {
+    .job-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .job-card {
+      width: 85%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .job-card {
+      padding: 0.8rem;
+    }
+  }
+}

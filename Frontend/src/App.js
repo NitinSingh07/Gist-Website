@@ -5,7 +5,6 @@ import Header from "./components/common/Header"; // Import the Header component
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
-import Jobs from "./pages/Jobs";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -23,7 +22,6 @@ const App = () => {
           <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/jobs" element={<Jobs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/companies" element={<ForCompanies />} />
           <Route path="/job-seekers" element={<ForJobSeekers />} />
