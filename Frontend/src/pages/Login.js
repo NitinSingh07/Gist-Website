@@ -23,7 +23,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `https://gist-website.onrender.com/api/login`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/login`,
         formData,
         {
           headers: {

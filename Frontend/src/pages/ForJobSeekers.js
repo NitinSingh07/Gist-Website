@@ -10,14 +10,18 @@ const ForJobSeekers = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/job/get-jobs");
+        const response = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/job/get-jobs`
+        );
         setJobs(response.data);
       } catch (error) {
         console.error("Error fetching jobs", error);
       }
     };
 
-    const eventSource = new EventSource("http://localhost:4000/job/stream");
+    const eventSource = new EventSource(
+      `${process.env.REACT_APP_BACKEND_URL}/job/stream`
+    );
     eventSource.onmessage = (event) => {
       const newJob = JSON.parse(event.data);
       setJobs((prevJobs) => [...prevJobs, newJob]);

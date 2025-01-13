@@ -8,7 +8,9 @@ const LatestJobOpenings = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/job/get-jobs");
+        const response = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/job/get-jobs`
+        );
         setJobListings(response.data);
       } catch (error) {
         console.error("Error fetching jobs", error);

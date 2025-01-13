@@ -23,7 +23,10 @@ const ForCompanies = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:4000/job/create-jobs", job);
+      await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/job/create-jobs`,
+        job
+      );
       alert("Job posted successfully!");
       setJob({
         name: "",

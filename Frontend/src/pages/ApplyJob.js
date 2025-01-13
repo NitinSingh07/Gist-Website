@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
-// import "../styles/pages/_applyjob.scss";
+import axios from "axios";
 
 const ApplyJob = () => {
   const { jobId } = useParams();
@@ -11,8 +10,10 @@ const ApplyJob = () => {
     state: "",
     email: "",
     experience: "",
-    resume: null,
+    resumeURL: "",
   });
+
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,50 +23,56 @@ const ApplyJob = () => {
     });
   };
 
-  const handleFileChange = (e) => {
-    setApplicant({
-      ...applicant,
-      resume: e.target.files[0],
-    });
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("name", applicant.name);
-    formData.append("phone", applicant.phone);
-    formData.append("state", applicant.state);
-    formData.append("email", applicant.email);
-    formData.append("experience", applicant.experience);
-    formData.append("resume", applicant.resume);
-    formData.append("jobId", jobId);
+
+    const jsonData = {
+      name: applicant.name,
+      phone: applicant.phone,
+      state: applicant.state,
+      email: applicant.email,
+      experience: applicant.experience,
+      resumeURL: applicant.resumeURL, // Include the resume URL in the submission
+    };
 
     try {
-      const token = localStorage.getItem("token");
-      await axios.post(`http://localhost:4000/job/apply/${jobId}`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      alert("Application submitted successfully!");
-      setApplicant({
-        name: "",
-        phone: "",
-        state: "",
-        email: "",
-        experience: "",
-        resume: null,
-      });
+      const response = await fetch(
+        `https://formspree.io/f/${process.env.REACT_APP_FORMSPREE_CODE}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(jsonData),
+        }
+      );
+
+      if (response.ok) {
+        setSuccessMessage("Application submitted successfully!");
+        setApplicant({
+          name: "",
+          phone: "",
+          state: "",
+          email: "",
+          experience: "",
+          resumeURL: "",
+        });
+      } else {
+        console.error("Error Response:", response);
+        alert(
+          "Failed to submit the application. Please check the input fields."
+        );
+      }
     } catch (error) {
-      alert("There was an error submitting your application!");
-      console.error("There was an error submitting your application!", error);
+      console.error("Submission Error:", error);
+      alert("There was an error submitting your application.");
     }
   };
 
   return (
     <div className="apply-job-container">
       <h1 className="apply-job-heading">Apply for Job</h1>
+      {successMessage && <p className="success-message">{successMessage}</p>}
       <form className="apply-job-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
@@ -90,12 +97,12 @@ const ApplyJob = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="state">State:</label>
+          <label htmlFor="address">Address:</label>
           <input
             type="text"
-            id="state"
-            name="state"
-            value={applicant.state}
+            id="address"
+            name="address"
+            value={applicant.address}
             onChange={handleChange}
             required
           />
@@ -123,13 +130,13 @@ const ApplyJob = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="resume">Upload Resume (PDF):</label>
+          <label htmlFor="resumeURL">Resume URL:</label>
           <input
-            type="file"
-            id="resume"
-            name="resume"
-            accept="application/pdf"
-            onChange={handleFileChange}
+            type="url"
+            id="resumeURL"
+            name="resumeURL"
+            value={applicant.resumeURL}
+            onChange={handleChange}
             required
           />
         </div>
