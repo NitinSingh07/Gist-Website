@@ -61,7 +61,7 @@ const TalentSection = () => (
         </div>
       </div>
     </div>
-    <div className="talent-column recruit">
+    <div className="talent-column ">
       <div className="talent-content">
         <div className="section-header">
           <div className="header-pre">Need talent?</div>
