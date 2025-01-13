@@ -1,43 +1,43 @@
-// SCSS styles for the ApplyJob component
-
 .apply-job-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1.5rem;
   font-family: "Arial", sans-serif;
   color: #333;
   background: url("https://images.unsplash.com/photo-1606112219348-204d7d8b94ee")
-  no-repeat center center/cover;
-  min-height: 100vh;
+    no-repeat center center/cover;
+  min-height: 90vh;
 
   .apply-job-heading {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 2.5vw, 2.8rem);
     margin-bottom: 1.5rem;
-    color: #e6e2e2;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
     text-align: center;
   }
 
   .success-message {
-    color: #27ae60;
-    font-size: 1.2rem;
+    color: #2ecc71;
+    font-size: clamp(1rem, 1.2vw, 1.5rem);
     margin-bottom: 1rem;
-    font-weight: bold;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.8rem 1.2rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
 
   .apply-job-form {
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    border-radius: 10px;
-    padding: 2rem;
-    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: clamp(1.5rem, 2vw, 2.5rem);
+    width: 90%;
     max-width: 500px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 
     .form-group {
       display: flex;
@@ -45,45 +45,47 @@
       margin-bottom: 1.5rem;
 
       label {
-        font-size: 1rem;
-        color: #333;
+        font-size: clamp(0.85rem, 1vw, 1rem);
+        color: #555;
         margin-bottom: 0.5rem;
+        font-weight: 600;
       }
 
       input {
-        padding: 0.75rem;
+        padding: 0.8rem;
         border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 1rem;
+        border-radius: 5px;
+        font-size: clamp(0.85rem, 1vw, 1rem);
         color: #333;
         outline: none;
+        transition: all 0.3s;
 
         &:focus {
           border-color: #3498db;
-          box-shadow: 0 0 6px rgba(52, 152, 219, 0.5);
+          box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
         }
       }
     }
 
     .submit-button {
-      background: linear-gradient(45deg, #3498db, #2980b9);
+      background: linear-gradient(135deg, #4a90e2, #357abd);
       color: #fff;
-      padding: 0.75rem 1.5rem;
+      padding: clamp(0.8rem, 1.2vw, 1.5rem) clamp(1rem, 2vw, 2rem);
       border: none;
-      border-radius: 30px;
-      font-size: 1.2rem;
-      font-weight: bold;
+      border-radius: 25px;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      font-weight: 700;
       cursor: pointer;
       transition: all 0.3s;
 
       &:hover {
-        background: linear-gradient(45deg, #2980b9, #3498db);
-        transform: translateY(-3px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(135deg, #357abd, #4a90e2);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
       }
 
       &:active {
-        background: #1c5985;
+        background: #2a6099;
         transform: translateY(1px);
         box-shadow: none;
       }
@@ -91,50 +93,53 @@
   }
 
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: 1.5rem;
 
     .apply-job-heading {
-      font-size: 2rem;
+      font-size: clamp(1.5rem, 3vw, 2rem);
     }
 
     .apply-job-form {
-      padding: 1.5rem;
+      padding: clamp(1.5rem, 2vw, 2rem);
     }
 
     .form-group label {
-      font-size: 0.9rem;
+      font-size: clamp(0.8rem, 1vw, 0.95rem);
     }
 
     .form-group input {
-      font-size: 1rem;
+      font-size: clamp(0.8rem, 1vw, 0.95rem);
     }
 
     .submit-button {
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
+      font-size: clamp(0.9rem, 1.2vw, 1rem);
+      padding: clamp(0.7rem, 1vw, 1rem) clamp(1rem, 1.5vw, 1.5rem);
     }
   }
 
   @media (max-width: 480px) {
+    padding: 1rem;
+
     .apply-job-heading {
-      font-size: 1.75rem;
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
     }
 
     .apply-job-form {
       padding: 1rem;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     }
 
     .form-group label {
-      font-size: 0.85rem;
+      font-size: clamp(0.7rem, 1vw, 0.85rem);
     }
 
     .form-group input {
-      font-size: 0.9rem;
+      font-size: clamp(0.7rem, 1vw, 0.85rem);
     }
 
     .submit-button {
-      font-size: 0.9rem;
-      padding: 0.5rem 0.75rem;
+      font-size: clamp(0.8rem, 1vw, 0.9rem);
+      padding: clamp(0.6rem, 0.8vw, 1rem) clamp(0.8rem, 1vw, 1.2rem);
     }
   }
 }
