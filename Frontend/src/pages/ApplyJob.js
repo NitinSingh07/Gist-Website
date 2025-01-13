@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const ApplyJob = () => {
   const { jobId } = useParams();
+  const [jobName, setJobName] = useState(""); // to store the fetched job/post name
   const [applicant, setApplicant] = useState({
     name: "",
     phone: "",
@@ -14,6 +15,17 @@ const ApplyJob = () => {
   });
 
   const [successMessage, setSuccessMessage] = useState("");
+
+  useEffect(() => {
+    // Fetch the job name from the backend
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/job/get-jobs`)
+      .then((response) => {
+        const job = response.data.find((item) => item._id === jobId);
+        if (job) setJobName(job.post);
+      })
+      .catch((error) => console.error("Error fetching job name:", error));
+  }, [jobId]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,12 +39,13 @@ const ApplyJob = () => {
     e.preventDefault();
 
     const jsonData = {
-      name: applicant.name,
-      phone: applicant.phone,
-      state: applicant.state,
-      email: applicant.email,
-      experience: applicant.experience,
-      resumeURL: applicant.resumeURL, // Include the resume URL in the submission
+      Name: applicant.name,
+      Phone: applicant.phone,
+      Address: applicant.address,
+      Email: applicant.email,
+      Experience: applicant.experience,
+      ResumeURL: applicant.resumeURL,
+      JobName: jobName, // include the fetched job/post name
     };
 
     try {
@@ -49,10 +62,11 @@ const ApplyJob = () => {
 
       if (response.ok) {
         setSuccessMessage("Application submitted successfully!");
+        alert("Application submitted successfully!"); // popup on success
         setApplicant({
           name: "",
           phone: "",
-          state: "",
+          address: "",
           email: "",
           experience: "",
           resumeURL: "",
