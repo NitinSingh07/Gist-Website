@@ -44,20 +44,19 @@ const ForJobSeekers = () => {
               {job.name}
             </h3>
             <p className="job-info">
-              <i className="fas fa-building"></i> Company: {job.company}
+              <i className="fas fa-building"></i> Company Name: {job.company}
             </p>
             <p className="job-info">
-              <i className="fas fa-user-tie"></i> Post: {job.post}
+              <i className="fas fa-user-tie"></i> Job Post: {job.post}
             </p>
             <p className="job-info">
-              <i className="fas fa-dollar-sign"></i> Salary: {job.salary}
+              <i className="fas fa-rupee-sign"></i> Salary: {job.salary} /year
             </p>
             <p className="job-info">
-              <i className="fas fa-clock"></i> Working Hours: {job.workingHours}
+              <i className="fas fa-clock"></i> Working Hours: {job.workingHours}{" "}
+              hours/day
             </p>
-            <span className={`job-status ${job.isNew ? "new" : "old"}`}>
-              {job.isNew ? "New" : "Old"}
-            </span>
+
             <button onClick={() => navigate(`/apply/${job._id}`)}>Apply</button>
           </div>
         ))}
