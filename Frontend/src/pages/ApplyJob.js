@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import "../styles/pages/_applyjob.scss";
 
 const ApplyJob = () => {
   const { jobId } = useParams();
@@ -85,7 +86,7 @@ const ApplyJob = () => {
 
   return (
     <div className="apply-job-container">
-      <h1 className="apply-job-heading">Apply for Job</h1>
+      <h1 className="apply-job-heading">Apply for {jobName} Position</h1>
       {successMessage && <p className="success-message">{successMessage}</p>}
       <form className="apply-job-form" onSubmit={handleSubmit}>
         <div className="form-group">

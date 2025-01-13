@@ -1,0 +1,140 @@
+// SCSS styles for the ApplyJob component
+
+.apply-job-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-family: "Arial", sans-serif;
+  color: #333;
+  background: url("https://images.unsplash.com/photo-1606112219348-204d7d8b94ee")
+  no-repeat center center/cover;
+  min-height: 100vh;
+
+  .apply-job-heading {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #e6e2e2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
+  }
+
+  .success-message {
+    color: #27ae60;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+
+  .apply-job-form {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.5rem;
+
+      label {
+        font-size: 1rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+      }
+
+      input {
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+        color: #333;
+        outline: none;
+
+        &:focus {
+          border-color: #3498db;
+          box-shadow: 0 0 6px rgba(52, 152, 219, 0.5);
+        }
+      }
+    }
+
+    .submit-button {
+      background: linear-gradient(45deg, #3498db, #2980b9);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background: linear-gradient(45deg, #2980b9, #3498db);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      &:active {
+        background: #1c5985;
+        transform: translateY(1px);
+        box-shadow: none;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    .apply-job-heading {
+      font-size: 2rem;
+    }
+
+    .apply-job-form {
+      padding: 1.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.9rem;
+    }
+
+    .form-group input {
+      font-size: 1rem;
+    }
+
+    .submit-button {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .apply-job-heading {
+      font-size: 1.75rem;
+    }
+
+    .apply-job-form {
+      padding: 1rem;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+    }
+
+    .form-group input {
+      font-size: 0.9rem;
+    }
+
+    .submit-button {
+      font-size: 0.9rem;
+      padding: 0.5rem 0.75rem;
+    }
+  }
+}
