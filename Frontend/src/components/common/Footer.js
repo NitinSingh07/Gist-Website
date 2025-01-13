@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "../../styles/components/_footer.scss";
+import logo from "../../assets/images/gist-logo.png";
 
 const Footer = () => {
   //   const context = useContext(authContext);
@@ -48,7 +49,9 @@ const Footer = () => {
         <div className="footer-content">
           {/* Company Info */}
           <div className="company-info">
-            <h4>Gist Noida</h4>
+            <Link to="/" className="logo">
+              <img src={logo} alt="Gist Logo" />
+            </Link>
             <p>
               A leading platform connecting job seekers and recruiters. Explore
               new opportunities, build your career, and stay connected.
