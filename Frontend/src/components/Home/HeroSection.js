@@ -44,7 +44,7 @@ const HeroSection = () => {
             <div>
               <h3>We’re</h3>
               <h1>
-                Recruiting Globaly
+                Currently Recruiting 
               </h1>
               <div className="social-box">
                 <a

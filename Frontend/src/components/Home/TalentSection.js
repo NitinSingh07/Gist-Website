@@ -49,11 +49,11 @@ const TalentSection = () => (
           </div>
         </div>
         <div className="action-buttons">
-          <a href="/candidates/overview" className="btn btn-secondary">
+          <a href="/about" className="btn btn-secondary">
             Learn more
           </a>
           <a
-            href="/jobs/signup?source=homepage&amp;source_content=got_talent_cta"
+            href="/signup"
             className="btn"
           >
             Sign up
@@ -106,10 +106,10 @@ const TalentSection = () => (
           </div>
         </div>
         <div className="action-buttons">
-          <a href="/recruit/overview" className="btn btn-secondary">
+          <a href="/about" className="btn btn-secondary">
             Learn more
           </a>
-          <a href="/onboarding/recruit/" className="btn">
+          <a href="/signup" className="btn">
             Sign up
           </a>
         </div>
