@@ -87,7 +87,6 @@ const ApplyJob = () => {
   return (
     <div className="apply-job-container">
       <h1 className="apply-job-heading">Apply for {jobName} Position</h1>
-      {successMessage && <p className="success-message">{successMessage}</p>}
       <form className="apply-job-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
