@@ -45,7 +45,7 @@ const Header = () => {
           <nav className="navbar">
             <ul className="menu">
               <li>
-                <Link to="/discover">Discover</Link>
+                <Link to="/about">About Us</Link>
               </li>
               <li>
                 <Link to="/job-seekers">For Job Seekers</Link>
@@ -84,8 +84,8 @@ const Header = () => {
       <div className={`sidebar ${sidebar ? "active" : ""}`}>
         <ul className="sidebar-menu">
           <li>
-            <Link to="/discover" onClick={toggleSidebar}>
-              Discover
+            <Link to="/about" onClick={toggleSidebar}>
+              About Us
             </Link>
           </li>
           <li>

@@ -60,8 +60,8 @@ const Footer = () => {
 
           {/* Links */}
           <div className="links">
-            <Link to="/About">About Us</Link>
-            <Link to="/alljobs">Jobs</Link>
+            <Link to="/about">About Us</Link>
+            <Link to="/job-seekers">Jobs</Link>
             {/* {islogedin && (
               <>
                 {userType === "recruiter" ? (
@@ -74,7 +74,7 @@ const Footer = () => {
             <Link to="/terms-of-service">Terms of Service</Link>
             <Link to="/privacy-policy">Privacy Policy</Link>
             <Link
-              to="/about"
+              to="/contact"
               onClick={() => {
                 setTimeout(() => {
                   const element = document.getElementById("contact-us");
@@ -91,28 +91,28 @@ const Footer = () => {
           {/* Social Icons */}
           <div className="social-icons">
             <Link
-              to="https://facebook.com"
+              to="https://www.facebook.com/GISTmspl/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaFacebookF />
             </Link>
             <Link
-              to="https://twitter.com"
+              to="https://x.com/GISTms"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaTwitter />
             </Link>
             <Link
-              to="https://instagram.com"
+              to="https://www.instagram.com/gisthrservices/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaInstagram />
             </Link>
             <Link
-              to="https://linkedin.com"
+              to="https://www.linkedin.com/school/globalincorporationforstaffingandtraining/?viewAsMember=true"
               target="_blank"
               rel="noopener noreferrer"
             >

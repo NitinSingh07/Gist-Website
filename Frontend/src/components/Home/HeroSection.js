@@ -7,7 +7,13 @@ import ban1 from "../../assets/images/ban-1.png";
 import ban2 from "../../assets/images/ban-2.png";
 import ban3 from "../../assets/images/ban-3.png";
 import ban4 from "../../assets/images/ban-4.png";
-import { FaFacebookF, FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedin,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa";
 
 const HeroSection = () => {
   const settings = {
@@ -43,53 +49,49 @@ const HeroSection = () => {
           <div className="inner-content">
             <div>
               <h3>We’re</h3>
-              <h1>
-                Currently Recruiting 
-              </h1>
+              <h1>Currently Recruiting</h1>
               <div className="social-box">
                 <a
-                  href="https://www.facebook.com/profile.php?id=100067194162471"
+                  href="https://www.facebook.com/GISTmspl/ "
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FaFacebookF/>
+                  <FaFacebookF />
                 </a>
                 <a
-                  href="https://www.instagram.com/globalnurseforce/"
+                  href="https://www.instagram.com/gisthrservices/ "
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FaInstagram />
                 </a>
                 <a
-                  href="https://twitter.com/GNFNurses"
+                  href="https://x.com/GISTms"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                 <FaTwitter />
+                  <FaTwitter />
                 </a>
                 <a
-                  href="https://www.linkedin.com/company/global-nurse-force/"
+                  href=" https://www.linkedin.com/school/globalincorporationforstaffingandtraining/?viewAsMember=true"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FaLinkedin />
                 </a>
-                <a
+                {/* <a
                   href="https://www.youtube.com/c/GlobalNurseForce"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FaYoutube />
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="banner-bottom">
-        
-      </div>
+      <div className="banner-bottom"></div>
     </div>
   );
 };
