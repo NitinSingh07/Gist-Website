@@ -328,68 +328,54 @@
 
 .jobs-container {
   .jobs-section {
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 40px 20px;
 
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      text-align: center;
 
       .horizontal-line {
         border: 2px solid #00a4d3;
-        width: 100px;
-        margin-bottom: 0;
+        width: 80px;
+        margin: 0 auto 20px;
       }
 
       .job-title {
-        margin-top: 0;
         color: #007bb5;
         font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
         margin-bottom: 30px;
-        font-weight: 600;
       }
 
       .job-band {
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin-bottom: 20px;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-        transition: transform 0.3s ease, box-shadow 0.8s ease;
-        border-top: 3px solid white;
+        padding: 20px;
+        margin-bottom: 15px;
         border-radius: 10px;
+        background-color: #f5f8fa;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
 
         &:hover {
-          transform: translateY(-3px);
-          box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
-          border-top: 3px solid #00c2ff;
+          transform: translateY(-5px);
+          box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         &.first {
-          background-color: #f5f8fa;
+          background-color: #e9f5ff;
           font-weight: bold;
-          flex-wrap: wrap;
-          text-align: left;
 
           .job-name,
           .job-country,
           .job-salary,
           .job-workingHours,
           .job-apply {
-            flex: 1;
-            min-width: 120px;
-            margin: 10px 5px;
             color: #333;
-            font-size: 1rem;
-            text-align: center;
-
-            @media (max-width: 768px) {
-              flex: 100%;
-              text-align: center;
-            }
           }
         }
 
@@ -400,54 +386,67 @@
         .job-apply {
           flex: 1;
           min-width: 150px;
-          margin: 5px;
-          color: #00476b;
-          font-size: 1rem;
-          font-weight: 500;
+          margin: 5px 0;
           text-align: center;
+          font-size: 1rem;
+          color: #00476b;
+          font-weight: 500;
 
           @media (max-width: 768px) {
             flex: 100%;
             text-align: center;
+            font-size: 0.9rem;
           }
         }
 
         .job-apply {
           a {
-            background-color: #00476b;
-            color: #fff;
-            border-radius: 5px;
+            display: inline-block;
             padding: 10px 20px;
+            background-color: #00476b;
+            color: #ffffff;
+            border-radius: 5px;
             text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: bold;
+            transition: all 0.3s ease;
 
             &:hover {
               background-color: #007bb5;
-              transform: translateY(-2px);
+              transform: translateY(-3px);
             }
+          }
+        }
+      }
+
+      .careers-list {
+        .job-band {
+          &:hover {
+            border-top: 3px solid #00a4d3;
           }
         }
       }
 
       .check-btn {
         display: inline-block;
+        margin-top: 30px;
         padding: 15px 30px;
         background-color: #00c2ff;
-        color: #00476b;
+        color: #ffffff;
         border-radius: 5px;
         text-decoration: none;
         font-weight: bold;
-        transition: background-color 0.3s ease, transform 0.3s ease;
+        text-align: center;
+        transition: all 0.3s ease;
 
         &:hover {
           background-color: #007bb5;
-          color: #fff;
-          transform: translateY(-2px);
+          transform: translateY(-3px);
         }
       }
     }
   }
 
+  // Responsive Design
   @media (max-width: 1024px) {
     .jobs-section {
       .container {
@@ -456,6 +455,8 @@
         }
 
         .job-band {
+          padding: 15px;
+
           .job-name,
           .job-country,
           .job-salary,
@@ -481,8 +482,8 @@
         }
 
         .job-band {
-          padding: 15px;
           flex-direction: column;
+          text-align: center;
 
           .job-name,
           .job-country,
@@ -491,7 +492,7 @@
           .job-apply {
             font-size: 0.9rem;
             flex: 100%;
-            text-align: center;
+            margin: 10px 0;
           }
         }
 
@@ -512,7 +513,6 @@
 
         .job-band {
           flex-direction: column;
-          text-align: center;
           padding: 10px;
 
           .job-name,
@@ -521,9 +521,6 @@
           .job-workingHours,
           .job-apply {
             font-size: 0.85rem;
-            margin: 5px 0;
-            flex: 100%;
-            text-align: center;
           }
         }
 
@@ -535,6 +532,8 @@
     }
   }
 }
+
+
 
 //************************************ Why We  **********************************************//
 //************************************ Why We **********************************************//
